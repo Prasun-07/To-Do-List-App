@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import Header from './Components/Header.jsx';
 import Note from './Components/Note.jsx';
@@ -6,10 +6,20 @@ import Footer from './Components/Footer.jsx';
 import InputArea from './Components/InputArea.jsx';
 
 function App() {
-  const [notes, setNotes] = useState([]);
+  function getLocalStorageValues(){
+    const arrayOfNotes= localStorage.getItem("notesValue");
+    if(arrayOfNotes){
+      return JSON.parse(arrayOfNotes);
+    }
+    else{
+      return [];
+    }
+  }
+  const [notes, setNotes] = useState(getLocalStorageValues());
 
   function addNote(newNote) {
     setNotes(prevNotes => [...prevNotes, newNote]);
+
   }
 
   function editNoteContent(id, editedNote) {
@@ -21,6 +31,10 @@ function App() {
   function deleteNote(id) {
     setNotes(prevNotes => prevNotes.filter(note => note.id !== id));
   }
+
+  useEffect(() => {
+    localStorage.setItem("notesValue", JSON.stringify(notes));
+  }, [notes]);
 
   return (
     <div>
