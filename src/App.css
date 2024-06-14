@@ -1,20 +1,22 @@
 * {
   padding: 0;
   margin: 0;
-  box-sizing: border-box;
 }
 html {
   font-family: "Montserrat", sans-serif;
+  overflow-x: hidden;
 }
 body {
   background: #eee;
   background-image: url("https://www.transparenttextures.com/patterns/diamond-upholstery.png");
   padding: 0 1em;
-  overflow: hidden;
+  object-fit: cover;
+  overflow-x: hidden;
 }
 
 header {
   background-color: #f5ba13;
+  width: 100%;
   margin: auto -1em;
   padding: 1em 2em;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
@@ -27,7 +29,7 @@ header h1 {
 }
 
 footer {
-  position: absolute;
+  position: fixed;
   text-align: center;
   bottom: 0;
   width: 100%;
@@ -72,7 +74,7 @@ footer p {
 
 form.create-note {
   position: relative;
-  width: 30em;
+  width: 35vw;
   margin: 30px auto 20px auto;
   background: #fff;
   padding: 15px;
@@ -125,4 +127,140 @@ form.update-note textarea {
   font-family: inherit;
   resize: none;
   color: white;
+}
+
+@media screen and (max-width: 767px) {
+  html{
+    overflow-x: hidden;
+  }
+  body {
+    background: #eee;
+    background-image: url("https://www.transparenttextures.com/patterns/diamond-upholstery.png");
+    padding: 0 1em;
+    overflow-x: hidden;
+    object-fit: cover;
+  }
+  header {
+    background-color: #f5ba13;
+    width: 100vw;
+    margin: auto -1em;
+    padding: 1em 2em;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+  }
+  
+  header h1 {
+    color: #fff;
+    font-family: "McLaren", cursive;
+    font-weight: 200;
+  }
+  
+  footer {
+    position: fixed;
+    text-align: center;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem;
+  }
+  
+  footer p {
+    color: #838282;
+  }
+  .note {
+    background: #fff;
+    border-radius: 7px;
+    box-shadow: 0 2px 5px #ccc;
+    padding: 10px;
+    width: 84vw;
+    height: 12.3vh;
+    margin: 16px 15px 16px 3px;
+    float: left;
+  }
+  .note h1 {
+    font-size: 1em;
+    margin-bottom: 6px;
+  }
+  .note p {
+    font-size: 1em;
+    margin-bottom: 10px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+  
+  .note button {
+    position: relative;
+    float: right;
+    margin-right: 10px;
+    color: #ffffff;
+    background-color: #f5ba13;
+    border: none;
+    width: 2.5em;
+    height: 2.5em;
+    cursor: pointer;
+    outline: none;
+  }
+  
+  form.create-note {
+    position: relative;
+    width: 60vw;
+    margin: 30px 40px 20px auto;
+    background: #fff;
+    padding: 15px;
+    border-radius: 7px;
+    box-shadow: 0 1px 5px rgb(138, 137, 137);
+  }
+  form.create-note input,
+  form.create-note textarea {
+    width: 100%;
+    border: none;
+    padding: 4px;
+    outline: none;
+    font-size: 1.2em;
+    font-family: inherit;
+    resize: none;
+  }
+  form.create-note button {
+    position: absolute;
+    right: 18px;
+    bottom: -18px;
+    background: #f5ba13;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 2.5em;
+    height: 2.5em;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    outline: none;
+  }
+  
+  form.update-note{
+    background: #e520de;
+    border-radius: 7px;
+    box-shadow: 0 2px 5px #ccc;
+    padding: 10px;
+    width: 15.7em;
+    height: 5.5em;
+    margin: 16px;
+    float: left;
+    overflow: hidden;
+  }
+  form.update-note input,
+  form.update-note textarea {
+    background: #e520de;
+    width: 100%;
+    border: none;
+    padding: 4px;
+    outline: none;
+    font-size: 1.2em;
+    font-family: inherit;
+    resize: none;
+    color: white;
+  }
+  form.update-note button{
+    position: relative;
+    bottom: 2.6em;
+  }
+
+  
 }

@@ -19,7 +19,6 @@ function App() {
 
   function addNote(newNote) {
     setNotes(prevNotes => [...prevNotes, newNote]);
-
   }
 
   function editNoteContent(id, editedNote) {
@@ -34,7 +33,7 @@ function App() {
 
   useEffect(() => {
     localStorage.setItem("notesValue", JSON.stringify(notes));
-  }, [notes]);
+  }, [notes]);                                                        //useEffect triggers whenever there is a change in the *notes
 
   return (
     <div>
