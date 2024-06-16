@@ -19,6 +19,10 @@ function InputArea(props) {
 
   function submitNote(event) {
     event.preventDefault();
+    if (note.title.trim() === "" || note.content.trim() === "") {
+      alert("Input area cannot be empty!");
+      return;
+    }
     props.onAdd(note);
     setNote({
       id: Date.now(),
